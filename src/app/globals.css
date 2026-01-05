@@ -1,0 +1,46 @@
+@import "tailwindcss";
+
+@theme {
+  /* Deep Emerald & Metallic Gold */
+  --color-primary: #022c22;
+  --color-accent: #d4af37;
+  --color-surface: #f8fafc;
+  --color-surface-dim: #e5e5e0;
+
+  --font-serif: var(--font-serif);
+  --font-sans: var(--font-sans);
+}
+
+body {
+  background-color: var(--color-surface);
+  color: var(--color-primary);
+  font-family: var(--font-sans);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-serif);
+}
+
+@keyframes shimmer {
+  from {
+    transform: translateX(-100%);
+  }
+
+  to {
+    transform: translateX(50%);
+  }
+}
+
+.transform-style-3d {
+  transform-style: preserve-3d;
+}
+
+.mask-linear-fade {
+  mask-image: linear-gradient(to right, black 60%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, black 60%, transparent 100%);
+}
