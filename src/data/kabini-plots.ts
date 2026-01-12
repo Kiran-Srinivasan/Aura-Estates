@@ -1,60 +1,293 @@
-export interface PlotData {
+export type PlotStatus = "available" | "reserved" | "sold";
+
+export interface KabiniPlot {
     id: number;
-    width: number; // visual width unit
-    height: number; // visual height unit
-    x: number;
-    y: number;
-    dimensions: string;
-    area: string;
+    status: PlotStatus;
+    points: string;
+    villa: { x: number; y: number };
+    label: { x: number; y: number; left?: number | string; top?: number | string };
+    sqft: number;
     facing: string;
-    status: "available" | "sold" | "reserved" | "booked";
 }
 
-// Helper to generate plots based on the layout
-// Row 1 (Top): 34 - 24 (Left to Right). Y ~= 50.
-// Row 2 (Middle): 12 - 22 (Left to Right). Starts after Cottage (~120px offset). Y ~= 180.
-// Row 3 (Bottom): 10 - 1 (Left to Right). Starts after Reserved Land (~120px offset). Y ~= 290.
-
-export const KABINI_PLOTS: PlotData[] = [
-    // --- ROW 1 (Top) ---
-    // Standard width ~60. Corner 24 wider ~100.
-    { id: 34, x: 0, y: 50, width: 60, height: 80, dimensions: "7500 + 900", area: "8400 Sq.ft", facing: "North", status: "booked" },
-    { id: 33, x: 60, y: 50, width: 60, height: 80, dimensions: "7500 + 900", area: "8400 Sq.ft", facing: "North", status: "available" },
-    { id: 32, x: 120, y: 50, width: 60, height: 80, dimensions: "7500 + 900", area: "8400 Sq.ft", facing: "North", status: "available" },
-    { id: 31, x: 180, y: 50, width: 60, height: 80, dimensions: "7500 + 900", area: "8400 Sq.ft", facing: "North", status: "available" },
-    { id: 30, x: 240, y: 50, width: 60, height: 80, dimensions: "7320 + 900", area: "8220 Sq.ft", facing: "North", status: "sold" },
-    { id: 29, x: 300, y: 50, width: 60, height: 80, dimensions: "7140 + 900", area: "8040 Sq.ft", facing: "North", status: "available" },
-    { id: 28, x: 360, y: 50, width: 60, height: 80, dimensions: "6600 + 900", area: "7500 Sq.ft", facing: "North", status: "available" },
-    { id: 27, x: 420, y: 50, width: 60, height: 80, dimensions: "7700 + 1050", area: "8750 Sq.ft", facing: "North", status: "booked" },
-    { id: 26, x: 480, y: 50, width: 60, height: 80, dimensions: "6660 + 900", area: "7560 Sq.ft", facing: "North", status: "available" },
-    { id: 25, x: 540, y: 50, width: 60, height: 80, dimensions: "6660 + 900", area: "7560 Sq.ft", facing: "North", status: "available" },
-    { id: 24, x: 600, y: 50, width: 90, height: 80, dimensions: "10705 + 1575", area: "12280 Sq.ft", facing: "North", status: "available" }, // Slanted right edge
-
-    // --- ROW 2 (Middle) ---
-    // Starts after Cottage (Width ~130px space). Y = 180.
-    // Plots 12-22. Standard width ~50.
-    { id: 12, x: 130, y: 170, width: 50, height: 70, dimensions: "6000 + 900", area: "6900 Sq.ft", facing: "North", status: "sold" },
-    { id: 14, x: 180, y: 170, width: 50, height: 70, dimensions: "6000 + 900", area: "6900 Sq.ft", facing: "North", status: "available" },
-    { id: 15, x: 230, y: 170, width: 50, height: 70, dimensions: "6000 + 900", area: "6900 Sq.ft", facing: "North", status: "available" },
-    { id: 16, x: 280, y: 170, width: 50, height: 70, dimensions: "6000 + 900", area: "6900 Sq.ft", facing: "North", status: "sold" },
-    { id: 17, x: 330, y: 170, width: 50, height: 70, dimensions: "6000 + 900", area: "6900 Sq.ft", facing: "North", status: "available" },
-    { id: 18, x: 380, y: 170, width: 50, height: 70, dimensions: "6000 + 900", area: "6900 Sq.ft", facing: "North", status: "available" },
-    { id: 19, x: 430, y: 170, width: 50, height: 70, dimensions: "5500 + 825", area: "6325 Sq.ft", facing: "North", status: "booked" },
-    { id: 20, x: 480, y: 170, width: 50, height: 70, dimensions: "6000 + 900", area: "6900 Sq.ft", facing: "North", status: "available" },
-    { id: 21, x: 530, y: 170, width: 50, height: 70, dimensions: "6000 + 900", area: "6900 Sq.ft", facing: "North", status: "available" },
-    { id: 22, x: 580, y: 170, width: 80, height: 70, dimensions: "7150 + 900", area: "8050 Sq.ft", facing: "North", status: "available" }, // Slanted right
-
-    // --- ROW 3 (Bottom) ---
-    // Starts after Reserved Land (Width ~130px space). Y = 280.
-    // Plots 10-1. 
-    { id: 10, x: 130, y: 280, width: 50, height: 70, dimensions: "6000 + 1800", area: "7800 Sq.ft", facing: "South", status: "sold" },
-    { id: 9, x: 180, y: 280, width: 50, height: 70, dimensions: "6000 + 1800", area: "7800 Sq.ft", facing: "South", status: "available" },
-    { id: 8, x: 230, y: 280, width: 50, height: 70, dimensions: "6000 + 1800", area: "7800 Sq.ft", facing: "South", status: "available" },
-    { id: 7, x: 280, y: 280, width: 50, height: 70, dimensions: "6000 + 1800", area: "7800 Sq.ft", facing: "South", status: "sold" },
-    { id: 6, x: 330, y: 280, width: 50, height: 70, dimensions: "6000 + 1800", area: "7800 Sq.ft", facing: "South", status: "available" },
-    { id: 5, x: 380, y: 280, width: 50, height: 70, dimensions: "6000 + 1800", area: "7800 Sq.ft", facing: "South", status: "available" },
-    { id: 4, x: 430, y: 280, width: 50, height: 70, dimensions: "6000 + 1800", area: "7800 Sq.ft", facing: "South", status: "booked" },
-    { id: 3, x: 480, y: 280, width: 50, height: 70, dimensions: "6000 + 1800", area: "7800 Sq.ft", facing: "South", status: "available" },
-    { id: 2, x: 530, y: 280, width: 50, height: 70, dimensions: "6000 + 1800", area: "7800 Sq.ft", facing: "South", status: "sold" },
-    { id: 1, x: 580, y: 280, width: 90, height: 70, dimensions: "7150 + 2490", area: "9640 Sq.ft", facing: "South", status: "available" }, // Slanted right
+export const KABINI_PLOTS: KabiniPlot[] = [
+    {
+        "id": 34,
+        "status": "available",
+        "points": "210,120 300,120 300,240 210,240",
+        "villa": { "x": 240, "y": 155 },
+        "label": { "x": 240, "y": 155 },
+        "sqft": 8400,
+        "facing": "South"
+    },
+    {
+        "id": 33,
+        "status": "available",
+        "points": "300,120 390,120 390,240 300,240",
+        "villa": { "x": 330, "y": 155 },
+        "label": { "x": 330, "y": 155 },
+        "sqft": 8400,
+        "facing": "South"
+    },
+    {
+        "id": 32,
+        "status": "available",
+        "points": "390,120 480,120 480,240 390,240",
+        "villa": { "x": 420, "y": 155 },
+        "label": { "x": 420, "y": 155 },
+        "sqft": 8400,
+        "facing": "South"
+    },
+    {
+        "id": 31,
+        "status": "available",
+        "points": "480,120 570,120 570,240 480,240",
+        "villa": { "x": 510, "y": 155 },
+        "label": { "x": 510, "y": 155 },
+        "sqft": 8400,
+        "facing": "South"
+    },
+    {
+        "id": 30,
+        "status": "available",
+        "points": "570,120 660,120 660,240 570,240",
+        "villa": { "x": 600, "y": 155 },
+        "label": { "x": 600, "y": 155 },
+        "sqft": 8220,
+        "facing": "South"
+    },
+    {
+        "id": 29,
+        "status": "available",
+        "points": "660,120 750,120 750,240 660,240",
+        "villa": { "x": 690, "y": 155 },
+        "label": { "x": 690, "y": 155 },
+        "sqft": 8040,
+        "facing": "South"
+    },
+    {
+        "id": 28,
+        "status": "available",
+        "points": "750,120 840,120 840,240 750,240",
+        "villa": { "x": 780, "y": 155 },
+        "label": { "x": 780, "y": 155 },
+        "sqft": 7500,
+        "facing": "South"
+    },
+    {
+        "id": 27,
+        "status": "available",
+        "points": "840,120 930,120 930,240 840,240",
+        "villa": { "x": 870, "y": 155 },
+        "label": { "x": 870, "y": 155 },
+        "sqft": 8750,
+        "facing": "South"
+    },
+    {
+        "id": 26,
+        "status": "available",
+        "points": "930,120 1020,120 1020,240 930,240",
+        "villa": { "x": 960, "y": 155 },
+        "label": { "x": 960, "y": 155 },
+        "sqft": 7560,
+        "facing": "South"
+    },
+    {
+        "id": 25,
+        "status": "available",
+        "points": "1020,120 1110,120 1110,240 1020,240",
+        "villa": { "x": 1050, "y": 155 },
+        "label": { "x": 1050, "y": 155 },
+        "sqft": 7560,
+        "facing": "South"
+    },
+    {
+        "id": 24,
+        "status": "available",
+        "points": "1110,120 1200,120 1200,240 1110,240",
+        "villa": { "x": 1140, "y": 155 },
+        "label": { "x": 1140, "y": 155 },
+        "sqft": 12280,
+        "facing": "South"
+    },
+    {
+        "id": 12,
+        "status": "available",
+        "points": "330,320 420,320 420,480 330,480",
+        "villa": { "x": 360, "y": 350 },
+        "label": { "x": 360, "y": 350 },
+        "sqft": 6900,
+        "facing": "North"
+    },
+    {
+        "id": 14,
+        "status": "available",
+        "points": "420,320 510,320 510,480 420,480",
+        "villa": { "x": 450, "y": 350 },
+        "label": { "x": 450, "y": 350 },
+        "sqft": 6900,
+        "facing": "North"
+    },
+    {
+        "id": 15,
+        "status": "available",
+        "points": "510,320 600,320 600,480 510,480",
+        "villa": { "x": 540, "y": 350 },
+        "label": { "x": 540, "y": 350 },
+        "sqft": 6900,
+        "facing": "North"
+    },
+    {
+        "id": 16,
+        "status": "available",
+        "points": "600,320 690,320 690,480 600,480",
+        "villa": { "x": 630, "y": 350 },
+        "label": { "x": 630, "y": 350 },
+        "sqft": 6900,
+        "facing": "North"
+    },
+    {
+        "id": 17,
+        "status": "available",
+        "points": "690,320 780,320 780,480 690,480",
+        "villa": { "x": 720, "y": 350 },
+        "label": { "x": 720, "y": 350 },
+        "sqft": 6900,
+        "facing": "North"
+    },
+    {
+        "id": 18,
+        "status": "available",
+        "points": "780,320 870,320 870,480 780,480",
+        "villa": { "x": 810, "y": 350 },
+        "label": { "x": 810, "y": 350 },
+        "sqft": 6900,
+        "facing": "North"
+    },
+    {
+        "id": 19,
+        "status": "available",
+        "points": "870,320 960,320 960,480 870,480",
+        "villa": { "x": 900, "y": 350 },
+        "label": { "x": 900, "y": 350 },
+        "sqft": 6900,
+        "facing": "North"
+    },
+    {
+        "id": 20,
+        "status": "available",
+        "points": "960,320 1050,320 1050,480 960,480",
+        "villa": { "x": 990, "y": 350 },
+        "label": { "x": 990, "y": 350 },
+        "sqft": 6900,
+        "facing": "North"
+    },
+    {
+        "id": 21,
+        "status": "available",
+        "points": "1050,320 1140,320 1140,480 1050,480",
+        "villa": { "x": 1080, "y": 350 },
+        "label": { "x": 1080, "y": 350 },
+        "sqft": 8050,
+        "facing": "North"
+    },
+    {
+        "id": 22,
+        "status": "available",
+        "points": "1140,320 1230,320 1230,480 1140,480",
+        "villa": { "x": 1170, "y": 350 },
+        "label": { "x": 1170, "y": 350 },
+        "sqft": 8050,
+        "facing": "North"
+    },
+    {
+        "id": 10,
+        "status": "available",
+        "points": "330,560 420,560 420,740 330,740",
+        "villa": { "x": 360, "y": 600 },
+        "label": { "x": 360, "y": 600 },
+        "sqft": 7800,
+        "facing": "East"
+    },
+    {
+        "id": 9,
+        "status": "available",
+        "points": "420,560 510,560 510,740 420,740",
+        "villa": { "x": 450, "y": 600 },
+        "label": { "x": 450, "y": 600 },
+        "sqft": 7800,
+        "facing": "East"
+    },
+    {
+        "id": 8,
+        "status": "available",
+        "points": "510,560 600,560 600,740 510,740",
+        "villa": { "x": 540, "y": 600 },
+        "label": { "x": 540, "y": 600 },
+        "sqft": 7800,
+        "facing": "East"
+    },
+    {
+        "id": 7,
+        "status": "available",
+        "points": "600,560 690,560 690,740 600,740",
+        "villa": { "x": 630, "y": 600 },
+        "label": { "x": 630, "y": 600 },
+        "sqft": 7800,
+        "facing": "East"
+    },
+    {
+        "id": 6,
+        "status": "available",
+        "points": "690,560 780,560 780,740 690,740",
+        "villa": { "x": 720, "y": 600 },
+        "label": { "x": 720, "y": 600 },
+        "sqft": 7800,
+        "facing": "East"
+    },
+    {
+        "id": 5,
+        "status": "available",
+        "points": "780,560 870,560 870,740 780,740",
+        "villa": { "x": 810, "y": 600 },
+        "label": { "x": 810, "y": 600 },
+        "sqft": 7800,
+        "facing": "East"
+    },
+    {
+        "id": 4,
+        "status": "available",
+        "points": "870,560 960,560 960,740 870,740",
+        "villa": { "x": 900, "y": 600 },
+        "label": { "x": 900, "y": 600 },
+        "sqft": 7800,
+        "facing": "East"
+    },
+    {
+        "id": 3,
+        "status": "available",
+        "points": "960,560 1050,560 1050,740 960,740",
+        "villa": { "x": 990, "y": 600 },
+        "label": { "x": 990, "y": 600 },
+        "sqft": 7800,
+        "facing": "East"
+    },
+    {
+        "id": 2,
+        "status": "available",
+        "points": "1050,560 1140,560 1140,740 1050,740",
+        "villa": { "x": 1080, "y": 600 },
+        "label": { "x": 1080, "y": 600 },
+        "sqft": 7800,
+        "facing": "East"
+    },
+    {
+        "id": 1,
+        "status": "available",
+        "points": "1140,560 1230,560 1230,740 1140,740",
+        "villa": { "x": 1170, "y": 600 },
+        "label": { "x": 1170, "y": 600 },
+        "sqft": 9640,
+        "facing": "East"
+    }
 ];

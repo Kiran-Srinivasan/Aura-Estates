@@ -1,0 +1,1221 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 34,
+        "status": "booked",
+        "area": "7500 Sq.ft",
+        "dimensions": "7500 + 900",
+        "facing": "North",
+        "price": "\u20b984 Lakhs"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              76.2753,
+              11.94865
+            ],
+            [
+              76.27552,
+              11.94865
+            ],
+            [
+              76.27552,
+              11.94843
+            ],
+            [
+              76.2753,
+              11.94843
+            ],
+            [
+              76.2753,
+              11.94865
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 33,
+        "status": "booked",
+        "area": "8400 Sq.ft",
+        "dimensions": "7500 + 900",
+        "facing": "North",
+        "price": "\u20b992 Lakhs"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              76.27555,
+              11.94865
+            ],
+            [
+              76.27577,
+              11.94865
+            ],
+            [
+              76.27577,
+              11.94843
+            ],
+            [
+              76.27555,
+              11.94843
+            ],
+            [
+              76.27555,
+              11.94865
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 36,
+        "status": "available",
+        "area": "8400 Sq.ft",
+        "dimensions": "7500 + 900",
+        "facing": "North",
+        "price": "\u20b979 Lakhs"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              76.2758,
+              11.94865
+            ],
+            [
+              76.27602,
+              11.94865
+            ],
+            [
+              76.27602,
+              11.94843
+            ],
+            [
+              76.2758,
+              11.94843
+            ],
+            [
+              76.2758,
+              11.94865
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 35,
+        "status": "sold",
+        "area": "9600 Sq.ft",
+        "dimensions": "7500 + 900",
+        "facing": "North",
+        "price": "\u20b985 Lakhs"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              76.27605,
+              11.94865
+            ],
+            [
+              76.27627,
+              11.94865
+            ],
+            [
+              76.27627,
+              11.94843
+            ],
+            [
+              76.27605,
+              11.94843
+            ],
+            [
+              76.27605,
+              11.94865
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 38,
+        "status": "available",
+        "area": "8400 Sq.ft",
+        "dimensions": "7500 + 900",
+        "facing": "North",
+        "price": "\u20b971 Lakhs"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              76.2763,
+              11.94865
+            ],
+            [
+              76.27652,
+              11.94865
+            ],
+            [
+              76.27652,
+              11.94843
+            ],
+            [
+              76.2763,
+              11.94843
+            ],
+            [
+              76.2763,
+              11.94865
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 37,
+        "status": "available",
+        "area": "8200 Sq.ft",
+        "dimensions": "7320 + 900",
+        "facing": "North",
+        "price": "\u20b998 Lakhs"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              76.27655,
+              11.94865
+            ],
+            [
+              76.27677,
+              11.94865
+            ],
+            [
+              76.27677,
+              11.94843
+            ],
+            [
+              76.27655,
+              11.94843
+            ],
+            [
+              76.27655,
+              11.94865
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 26,
+        "status": "available",
+        "area": "8040 Sq.ft",
+        "dimensions": "7140 + 900",
+        "facing": "North",
+        "price": "\u20b9100 Lakhs"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              76.2768,
+              11.94865
+            ],
+            [
+              76.27702,
+              11.94865
+            ],
+            [
+              76.27702,
+              11.94843
+            ],
+            [
+              76.2768,
+              11.94843
+            ],
+            [
+              76.2768,
+              11.94865
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 27,
+        "status": "sold",
+        "area": "7500 Sq.ft",
+        "dimensions": "6600 + 900",
+        "facing": "North",
+        "price": "\u20b962 Lakhs"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              76.27705,
+              11.94865
+            ],
+            [
+              76.27727,
+              11.94865
+            ],
+            [
+              76.27727,
+              11.94843
+            ],
+            [
+              76.27705,
+              11.94843
+            ],
+            [
+              76.27705,
+              11.94865
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 28,
+        "status": "available",
+        "area": "8750 Sq.ft",
+        "dimensions": "7700 + 1050",
+        "facing": "North",
+        "price": "\u20b957 Lakhs"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              76.2773,
+              11.94865
+            ],
+            [
+              76.27752,
+              11.94865
+            ],
+            [
+              76.27752,
+              11.94843
+            ],
+            [
+              76.2773,
+              11.94843
+            ],
+            [
+              76.2773,
+              11.94865
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 25,
+        "status": "sold",
+        "area": "7560 Sq.ft",
+        "dimensions": "6660 + 900",
+        "facing": "North",
+        "price": "\u20b962 Lakhs"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              76.27755,
+              11.94865
+            ],
+            [
+              76.27777,
+              11.94865
+            ],
+            [
+              76.27777,
+              11.94843
+            ],
+            [
+              76.27755,
+              11.94843
+            ],
+            [
+              76.27755,
+              11.94865
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 24,
+        "status": "sold",
+        "area": "12280 Sq.ft",
+        "dimensions": "10705 + 1575",
+        "facing": "North",
+        "price": "\u20b976 Lakhs"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              76.2778,
+              11.94865
+            ],
+            [
+              76.27802,
+              11.94865
+            ],
+            [
+              76.27802,
+              11.94843
+            ],
+            [
+              76.2778,
+              11.94843
+            ],
+            [
+              76.2778,
+              11.94865
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 12,
+        "status": "booked",
+        "area": "6900 Sq.ft",
+        "dimensions": "6000 + 900",
+        "facing": "North",
+        "price": "\u20b954 Lakhs"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              76.2753,
+              11.94838
+            ],
+            [
+              76.27552,
+              11.94838
+            ],
+            [
+              76.27552,
+              11.94816
+            ],
+            [
+              76.2753,
+              11.94816
+            ],
+            [
+              76.2753,
+              11.94838
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 13,
+        "status": "booked",
+        "area": "6900 Sq.ft",
+        "dimensions": "6000 + 900",
+        "facing": "North",
+        "price": "\u20b965 Lakhs"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              76.27555,
+              11.94838
+            ],
+            [
+              76.27577,
+              11.94838
+            ],
+            [
+              76.27577,
+              11.94816
+            ],
+            [
+              76.27555,
+              11.94816
+            ],
+            [
+              76.27555,
+              11.94838
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 14,
+        "status": "booked",
+        "area": "6900 Sq.ft",
+        "dimensions": "6000 + 900",
+        "facing": "North",
+        "price": "\u20b992 Lakhs"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              76.2758,
+              11.94838
+            ],
+            [
+              76.27602,
+              11.94838
+            ],
+            [
+              76.27602,
+              11.94816
+            ],
+            [
+              76.2758,
+              11.94816
+            ],
+            [
+              76.2758,
+              11.94838
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 15,
+        "status": "sold",
+        "area": "6900 Sq.ft",
+        "dimensions": "6000 + 900",
+        "facing": "North",
+        "price": "\u20b982 Lakhs"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              76.27605,
+              11.94838
+            ],
+            [
+              76.27627,
+              11.94838
+            ],
+            [
+              76.27627,
+              11.94816
+            ],
+            [
+              76.27605,
+              11.94816
+            ],
+            [
+              76.27605,
+              11.94838
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 16,
+        "status": "booked",
+        "area": "6900 Sq.ft",
+        "dimensions": "6000 + 900",
+        "facing": "North",
+        "price": "\u20b990 Lakhs"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              76.2763,
+              11.94838
+            ],
+            [
+              76.27652,
+              11.94838
+            ],
+            [
+              76.27652,
+              11.94816
+            ],
+            [
+              76.2763,
+              11.94816
+            ],
+            [
+              76.2763,
+              11.94838
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 17,
+        "status": "available",
+        "area": "6900 Sq.ft",
+        "dimensions": "6000 + 900",
+        "facing": "North",
+        "price": "\u20b951 Lakhs"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              76.27655,
+              11.94838
+            ],
+            [
+              76.27677,
+              11.94838
+            ],
+            [
+              76.27677,
+              11.94816
+            ],
+            [
+              76.27655,
+              11.94816
+            ],
+            [
+              76.27655,
+              11.94838
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 18,
+        "status": "available",
+        "area": "6325 Sq.ft",
+        "dimensions": "5500 + 825",
+        "facing": "North",
+        "price": "\u20b974 Lakhs"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              76.2768,
+              11.94838
+            ],
+            [
+              76.27702,
+              11.94838
+            ],
+            [
+              76.27702,
+              11.94816
+            ],
+            [
+              76.2768,
+              11.94816
+            ],
+            [
+              76.2768,
+              11.94838
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 19,
+        "status": "sold",
+        "area": "6900 Sq.ft",
+        "dimensions": "6000 + 900",
+        "facing": "North",
+        "price": "\u20b959 Lakhs"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              76.27705,
+              11.94838
+            ],
+            [
+              76.27727,
+              11.94838
+            ],
+            [
+              76.27727,
+              11.94816
+            ],
+            [
+              76.27705,
+              11.94816
+            ],
+            [
+              76.27705,
+              11.94838
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 29,
+        "status": "available",
+        "area": "6900 Sq.ft",
+        "dimensions": "6000 + 900",
+        "facing": "North",
+        "price": "\u20b958 Lakhs"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              76.2773,
+              11.94838
+            ],
+            [
+              76.27752,
+              11.94838
+            ],
+            [
+              76.27752,
+              11.94816
+            ],
+            [
+              76.2773,
+              11.94816
+            ],
+            [
+              76.2773,
+              11.94838
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 23,
+        "status": "sold",
+        "area": "8050 Sq.ft",
+        "dimensions": "7150 + 900",
+        "facing": "North",
+        "price": "\u20b961 Lakhs"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              76.27755,
+              11.94838
+            ],
+            [
+              76.27777,
+              11.94838
+            ],
+            [
+              76.27777,
+              11.94816
+            ],
+            [
+              76.27755,
+              11.94816
+            ],
+            [
+              76.27755,
+              11.94838
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 100,
+        "status": "booked",
+        "area": "8050 Sq.ft",
+        "dimensions": "7150 + 900",
+        "facing": "North",
+        "price": "\u20b996 Lakhs"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              76.2778,
+              11.94838
+            ],
+            [
+              76.27802,
+              11.94838
+            ],
+            [
+              76.27802,
+              11.94816
+            ],
+            [
+              76.2778,
+              11.94816
+            ],
+            [
+              76.2778,
+              11.94838
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 11,
+        "status": "available",
+        "area": "7800 Sq.ft",
+        "dimensions": "6000 + 1800",
+        "facing": "South",
+        "price": "\u20b979 Lakhs"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              76.2753,
+              11.94801
+            ],
+            [
+              76.27552,
+              11.94801
+            ],
+            [
+              76.27552,
+              11.94779
+            ],
+            [
+              76.2753,
+              11.94779
+            ],
+            [
+              76.2753,
+              11.94801
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 112,
+        "status": "available",
+        "area": "7800 Sq.ft",
+        "dimensions": "6000 + 1800",
+        "facing": "South",
+        "price": "\u20b963 Lakhs"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              76.27555,
+              11.94801
+            ],
+            [
+              76.27577,
+              11.94801
+            ],
+            [
+              76.27577,
+              11.94779
+            ],
+            [
+              76.27555,
+              11.94779
+            ],
+            [
+              76.27555,
+              11.94801
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 114,
+        "status": "sold",
+        "area": "7800 Sq.ft",
+        "dimensions": "6000 + 1800",
+        "facing": "South",
+        "price": "\u20b983 Lakhs"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              76.2758,
+              11.94801
+            ],
+            [
+              76.27602,
+              11.94801
+            ],
+            [
+              76.27602,
+              11.94779
+            ],
+            [
+              76.2758,
+              11.94779
+            ],
+            [
+              76.2758,
+              11.94801
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 116,
+        "status": "sold",
+        "area": "7800 Sq.ft",
+        "dimensions": "6000 + 1800",
+        "facing": "South",
+        "price": "\u20b954 Lakhs"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              76.27605,
+              11.94801
+            ],
+            [
+              76.27627,
+              11.94801
+            ],
+            [
+              76.27627,
+              11.94779
+            ],
+            [
+              76.27605,
+              11.94779
+            ],
+            [
+              76.27605,
+              11.94801
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 119,
+        "status": "sold",
+        "area": "7800 Sq.ft",
+        "dimensions": "6000 + 1800",
+        "facing": "South",
+        "price": "\u20b962 Lakhs"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              76.2763,
+              11.94801
+            ],
+            [
+              76.27652,
+              11.94801
+            ],
+            [
+              76.27652,
+              11.94779
+            ],
+            [
+              76.2763,
+              11.94779
+            ],
+            [
+              76.2763,
+              11.94801
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 20,
+        "status": "available",
+        "area": "7800 Sq.ft",
+        "dimensions": "6000 + 1800",
+        "facing": "South",
+        "price": "\u20b963 Lakhs"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              76.27655,
+              11.94801
+            ],
+            [
+              76.27677,
+              11.94801
+            ],
+            [
+              76.27677,
+              11.94779
+            ],
+            [
+              76.27655,
+              11.94779
+            ],
+            [
+              76.27655,
+              11.94801
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 21,
+        "status": "available",
+        "area": "7800 Sq.ft",
+        "dimensions": "6000 + 1800",
+        "facing": "South",
+        "price": "\u20b965 Lakhs"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              76.2768,
+              11.94801
+            ],
+            [
+              76.27702,
+              11.94801
+            ],
+            [
+              76.27702,
+              11.94779
+            ],
+            [
+              76.2768,
+              11.94779
+            ],
+            [
+              76.2768,
+              11.94801
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 22,
+        "status": "available",
+        "area": "7800 Sq.ft",
+        "dimensions": "6000 + 1800",
+        "facing": "South",
+        "price": "\u20b994 Lakhs"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              76.27705,
+              11.94801
+            ],
+            [
+              76.27727,
+              11.94801
+            ],
+            [
+              76.27727,
+              11.94779
+            ],
+            [
+              76.27705,
+              11.94779
+            ],
+            [
+              76.27705,
+              11.94801
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 30,
+        "status": "available",
+        "area": "7800 Sq.ft",
+        "dimensions": "6000 + 1800",
+        "facing": "South",
+        "price": "\u20b996 Lakhs"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              76.2773,
+              11.94801
+            ],
+            [
+              76.27752,
+              11.94801
+            ],
+            [
+              76.27752,
+              11.94779
+            ],
+            [
+              76.2773,
+              11.94779
+            ],
+            [
+              76.2773,
+              11.94801
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 31,
+        "status": "sold",
+        "area": "9640 Sq.ft",
+        "dimensions": "7150 + 2490",
+        "facing": "South",
+        "price": "\u20b957 Lakhs"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              76.27755,
+              11.94801
+            ],
+            [
+              76.27777,
+              11.94801
+            ],
+            [
+              76.27777,
+              11.94779
+            ],
+            [
+              76.27755,
+              11.94779
+            ],
+            [
+              76.27755,
+              11.94801
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}

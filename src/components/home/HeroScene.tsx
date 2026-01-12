@@ -38,7 +38,7 @@ function FloatingClouds() {
 const HeroSceneComponent = () => {
     return (
         <div className="absolute inset-0 z-0 pointer-events-none">
-            <Canvas camera={{ position: [0, 0, 10], fov: 75 }}>
+            <Canvas camera={{ position: [0, 0, 10], fov: 75 }} style={{ pointerEvents: 'none' }}>
                 <fog attach="fog" args={['#ffffff', 5, 40]} />
                 <ambientLight intensity={0.5} />
 

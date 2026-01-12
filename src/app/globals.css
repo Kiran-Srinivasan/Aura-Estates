@@ -11,6 +11,17 @@
   --font-sans: var(--font-sans);
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+  /* overflow-y: scroll; Removed to let browser handle default */
+}
+
 body {
   background-color: var(--color-surface);
   color: var(--color-primary);
@@ -43,4 +54,28 @@ h6 {
 .mask-linear-fade {
   mask-image: linear-gradient(to right, black 60%, transparent 100%);
   -webkit-mask-image: linear-gradient(to right, black 60%, transparent 100%);
+}
+
+@keyframes smoke-float {
+  0% {
+    transform: translateY(0) scale(1) rotate(0deg);
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 0.6;
+  }
+
+  80% {
+    opacity: 0.4;
+  }
+
+  100% {
+    transform: translateY(-40px) scale(1.5) rotate(10deg);
+    opacity: 0;
+  }
+}
+
+.animate-smoke {
+  animation: smoke-float 8s infinite ease-in-out;
 }

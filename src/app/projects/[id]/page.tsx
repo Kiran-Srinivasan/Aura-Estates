@@ -7,7 +7,7 @@ import { Footer } from "@/components/layout/Footer";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { PROJECTS } from "@/data/projects";
-import { MasterPlan } from "@/components/projects/MasterPlan";
+import MasterPlan from "@/components/projects/MasterPlan";
 
 export default async function ProjectDetailPage({ params }: { params: Promise<{ id: string }> }) {
     const { id } = await params;

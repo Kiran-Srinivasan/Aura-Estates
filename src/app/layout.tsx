@@ -19,6 +19,8 @@ export const metadata: Metadata = {
   description: "Exclusive land parcels and luxury communities for the discerning investor.",
 };
 
+import { Header } from "@/components/layout/Header";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -29,6 +31,7 @@ export default function RootLayout({
       <body
         className={`${playfair.variable} ${outfit.variable} antialiased bg-surface text-primary`}
       >
+        <Header />
         {children}
       </body>
     </html>

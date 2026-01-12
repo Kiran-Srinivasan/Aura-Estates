@@ -59,15 +59,17 @@ export function Header() {
                             {link.label}
                         </Link>
                     ))}
-                    <Button
-                        variant={isScrolled ? "solid" : "outline"}
-                        size="sm"
-                        className={cn(
-                            isScrolled ? "" : "border-white/30 text-white hover:bg-white hover:text-primary backdrop-blur-sm"
-                        )}
-                    >
-                        Book Site Visit
-                    </Button>
+                    <Link href="/contact">
+                        <Button
+                            variant={isScrolled ? "solid" : "outline"}
+                            size="sm"
+                            className={cn(
+                                isScrolled ? "" : "border-white/30 text-white hover:bg-white hover:text-primary backdrop-blur-sm"
+                            )}
+                        >
+                            Book Site Visit
+                        </Button>
+                    </Link>
                 </nav>
 
                 {/* Mobile Toggle */}
@@ -83,45 +85,43 @@ export function Header() {
             <AnimatePresence>
                 {isMobileOpen && (
                     <motion.div
-                        initial={{ opacity: 0, y: "-100%" }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: "-100%" }}
-                        transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-                        className="fixed inset-0 z-40 bg-surface/95 backdrop-blur-xl md:hidden flex flex-col justify-center items-center"
+                        initial={{ opacity: 0, y: -20, scale: 0.95 }}
+                        animate={{ opacity: 1, y: 0, scale: 1 }}
+                        exit={{ opacity: 0, y: -20, scale: 0.95 }}
+                        transition={{ duration: 0.3, ease: "easeOut" }}
+                        className="absolute top-full right-0 mt-4 w-72 bg-[#f4f4f0] rounded-2xl shadow-2xl border border-primary/5 md:hidden overflow-hidden origin-top-right mr-4"
                     >
-                        <nav className="flex flex-col gap-8 text-center bg-transparent">
+                        {/* Elegant background pattern */}
+                        <div className="absolute inset-0 opacity-[0.05] pointer-events-none"
+                            style={{
+                                backgroundImage: 'radial-gradient(circle at 50% 50%, #022c22 1px, transparent 1px)',
+                                backgroundSize: '20px 20px'
+                            }}
+                        />
+
+                        <nav className="flex flex-col p-6 relative z-10 text-left">
                             {NAV_LINKS.map((link, i) => (
-                                <motion.div
+                                <Link
                                     key={link.href}
-                                    initial={{ opacity: 0, y: 20 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    transition={{ delay: 0.1 + (i * 0.1), duration: 0.5 }}
-                                >
-                                    <Link
-                                        href={link.href}
-                                        onClick={() => setIsMobileOpen(false)}
-                                        className="font-serif text-4xl font-light text-primary hover:text-accent transition-colors block"
-                                    >
-                                        {link.label}
-                                    </Link>
-                                </motion.div>
-                            ))}
-                            <motion.div
-                                initial={{ opacity: 0, scale: 0.9 }}
-                                animate={{ opacity: 1, scale: 1 }}
-                                transition={{ delay: 0.5, duration: 0.5 }}
-                                className="w-full max-w-xs mx-auto mt-4"
-                            >
-                                <div className="h-px w-12 bg-primary/10 mx-auto mb-8" />
-                                <Button
-                                    variant="solid"
-                                    size="lg"
-                                    className="w-full"
+                                    href={link.href}
                                     onClick={() => setIsMobileOpen(false)}
+                                    className="block font-serif text-2xl text-primary hover:text-accent hover:pl-2 transition-all duration-300 py-3 border-b border-primary/5 last:border-0"
                                 >
-                                    Book Site Visit
-                                </Button>
-                            </motion.div>
+                                    {link.label}
+                                </Link>
+                            ))}
+
+                            <div className="mt-6 pt-2">
+                                <Link href="/contact" onClick={() => setIsMobileOpen(false)}>
+                                    <Button
+                                        variant="solid"
+                                        size="lg"
+                                        className="w-full bg-primary text-white hover:bg-primary/90 rounded-xl h-12 text-base font-medium"
+                                    >
+                                        Book Site Visit
+                                    </Button>
+                                </Link>
+                            </div>
                         </nav>
                     </motion.div>
                 )}
