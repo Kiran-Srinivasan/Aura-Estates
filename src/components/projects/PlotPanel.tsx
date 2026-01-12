@@ -1,11 +1,11 @@
 "use client";
 
-import { PlotData } from "@/data/kabini-plots";
+import { KabiniPlot } from "@/data/kabini-plots";
 import { X } from "lucide-react";
 import { motion } from "framer-motion";
 
 interface Props {
-    plot: PlotData;
+    plot: KabiniPlot;
     onClose: () => void;
 }
 
@@ -33,18 +33,14 @@ export function PlotPanel({ plot, onClose }: Props) {
 
             <div className="p-6 space-y-6 overflow-y-auto flex-1 bg-slate-50/50">
                 <div className="flex items-center gap-3 p-3 bg-white rounded-lg border border-slate-100 shadow-sm">
-                    <div className={`w-3 h-3 rounded-full ${plot.status === 'available' ? 'bg-emerald-500' : plot.status === 'booked' ? 'bg-amber-500' : 'bg-slate-500'}`} />
+                    <div className={`w-3 h-3 rounded-full ${plot.status === 'available' ? 'bg-emerald-500' : plot.status === 'reserved' ? 'bg-amber-500' : 'bg-slate-500'}`} />
                     <span className="capitalize font-medium text-slate-700">{plot.status}</span>
                 </div>
 
                 <div className="space-y-4 bg-white p-4 rounded-xl border border-slate-100 shadow-sm">
                     <div className="flex justify-between border-b border-slate-50 pb-3">
                         <span className="text-slate-500 text-xs uppercase tracking-wide">Area</span>
-                        <span className="font-semibold text-slate-900">{plot.area}</span>
-                    </div>
-                    <div className="flex justify-between border-b border-slate-50 pb-3">
-                        <span className="text-slate-500 text-xs uppercase tracking-wide">Dimensions</span>
-                        <span className="font-semibold text-slate-900">{plot.dimensions}</span>
+                        <span className="font-semibold text-slate-900">{plot.sqft} Sq.ft</span>
                     </div>
                     <div className="flex justify-between">
                         <span className="text-slate-500 text-xs uppercase tracking-wide">Facing</span>
