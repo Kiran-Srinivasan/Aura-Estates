@@ -8,13 +8,16 @@ export function FeaturedProjects() {
     const featuredProjects = PROJECTS.slice(0, 3);
 
     return (
-        <section className="py-20 md:py-32 bg-surface-dim/30">
+        <section className="py-16 md:py-32 bg-surface-dim/30">
             <Container>
                 <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
                     <div className="max-w-xl">
-                        <h2 className="font-serif text-3xl md:text-5xl font-medium mb-4">Featured Projects</h2>
-                        <p className="text-primary/70">
-                            Discover our latest developments, each chosen for its unique location, future growth potential, and natural beauty.
+                        <h2 className="font-serif text-3xl md:text-5xl font-medium mb-6 text-black">Featured Projects</h2>
+                        <div className="h-0.5 w-24 bg-[#C5A065] mb-6" />
+                        <p className="font-serif text-lg md:text-xl text-stone-600 italic leading-relaxed">
+                            Thoughtfully curated estates set amidst forests, backwaters, and open landscapes.
+                            <br className="hidden md:block" />
+                            Where nature, design, and quiet luxury come together.
                         </p>
                     </div>
                     <Button variant="outline" className="hidden md:flex">View All Projects</Button>

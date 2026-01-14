@@ -57,7 +57,7 @@ export function Hero() {
                         className="relative z-10"
                     >
                         <h1 className="font-serif text-4xl md:text-6xl text-white tracking-widest drop-shadow-lg leading-tight">
-                            PREMIUM LAND ESTATES
+                            BESPOKE LUXURY ESTATES
                         </h1>
                     </motion.div>
 
@@ -68,7 +68,7 @@ export function Hero() {
                         className="mt-6 flex flex-col items-center justify-center gap-6"
                     >
                         <p className="text-xs md:text-sm font-medium tracking-[0.2em] uppercase text-white/90 drop-shadow-md">
-                            Exclusive plots in lush, untouched landscapes
+                            Exclusive property in lush, untouched landscapes
                         </p>
 
                         <div className="h-8 w-px bg-white/30" />
