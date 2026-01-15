@@ -24,9 +24,10 @@ interface MasterPlanProps {
     plots: any[];
     mapImage: string;
     showLabels?: boolean;
+    mapDimensions?: { width: number; height: number };
 }
 
-export default function MasterPlan({ project, plots, mapImage, showLabels = true }: MasterPlanProps) {
+export default function MasterPlan({ project, plots, mapImage, showLabels = true, mapDimensions }: MasterPlanProps) {
     const [selectedPlot, setSelectedPlot] = useState<any>(null);
     const [showMap, setShowMap] = useState(false);
 
@@ -116,6 +117,7 @@ export default function MasterPlan({ project, plots, mapImage, showLabels = true
                                 plots={plots}
                                 mapImage={mapImage}
                                 showLabels={showLabels}
+                                mapDimensions={mapDimensions}
                             />
 
                             {/* Close Button */}

@@ -20,13 +20,15 @@ export default function PerspectiveMap({
     onSelect,
     plots,
     mapImage,
-    showLabels = true
+    showLabels = true,
+    mapDimensions = { width: 1024, height: 1024 }
 }: {
     selectedId: number | null;
     onSelect: (plot: any) => void;
     plots: PlotData[];
     mapImage: string;
     showLabels?: boolean;
+    mapDimensions?: { width: number; height: number };
 }) {
     const [isMobile, setIsMobile] = useState(false);
     const [initialScale, setInitialScale] = useState(1);
@@ -41,17 +43,17 @@ export default function PerspectiveMap({
     const [scanProgress, setScanProgress] = useState(0);
     const [discoveredPlots, setDiscoveredPlots] = useState<DiscoveredPlot[]>([]);
 
-    // ViewBox state defaults to 1024x1024 (matching the image)
-    const [mapViewBox, setMapViewBox] = useState("0 0 1024 1024");
+    // ViewBox state uses dynamic dimensions
+    const [mapViewBox, setMapViewBox] = useState(`0 0 ${mapDimensions.width} ${mapDimensions.height}`);
 
     useEffect(() => {
         const handleResize = () => {
             const mobile = window.innerWidth < 768;
             setIsMobile(mobile);
 
-            // Map dimensions matching the V5 Image (1024x1024)
-            const mapWidth = 1024;
-            const mapHeight = 1024;
+            // Map dimensions from props
+            const mapWidth = mapDimensions.width;
+            const mapHeight = mapDimensions.height;
             const containerWidth = window.innerWidth;
             const containerHeight = window.innerHeight;
 
@@ -82,7 +84,7 @@ export default function PerspectiveMap({
         handleResize();
         window.addEventListener("resize", handleResize);
         return () => window.removeEventListener("resize", handleResize);
-    }, []);
+    }, [mapDimensions]);
 
     // Helper to determine status color (Updated to Green for Available)
     const getPlotStatusColor = (status: string) => {
@@ -185,6 +187,21 @@ export default function PerspectiveMap({
                             </div>
                         </div>
 
+                        {/* DEVELOPER MODE TOGGLE */}
+                        {/* <div className="absolute top-6 right-6 z-50 flex gap-2 pointer-events-auto">
+                            <button
+                                onClick={() => setDeveloperMode(!developerMode)}
+                                className={`
+                                    px-3 py-1.5 rounded-lg text-[10px] font-bold uppercase tracking-widest shadow-xl border transition-all
+                                    ${developerMode
+                                        ? 'bg-orange-500 text-white border-orange-400'
+                                        : 'bg-slate-900/80 text-white/50 border-white/10 hover:bg-slate-800 hover:text-white'}
+                                `}
+                            >
+                                {developerMode ? 'Builder Mode: ON' : 'Builder Mode: OFF'}
+                            </button>
+                        </div> */}
+
                         {/* DEBUG PREVIEW */}
                         {/* {isScanning && (
                             <div className="absolute bottom-8 right-8 z-50 bg-white p-2 border-4 border-red-500 rounded shadow-lg">
@@ -214,56 +231,53 @@ export default function PerspectiveMap({
                                     viewBox={mapViewBox}
                                     className="absolute top-0 left-0 w-full h-full pointer-events-auto"
                                     onClick={(e) => {
-                                        // Manual Plot Entry Tool (Commented out for now, enable for new properties)
-                                        /* 
-                                        if (!isScanning) {
-                                            const svg = e.currentTarget;
-                                            const pt = svg.createSVGPoint();
-                                            pt.x = e.clientX;
-                                            pt.y = e.clientY;
-                                            const cursorPt = pt.matrixTransform(svg.getScreenCTM()?.inverse());
+                                        // if (developerMode) {
+                                        //     const svg = e.currentTarget;
+                                        //     const pt = svg.createSVGPoint();
+                                        //     pt.x = e.clientX;
+                                        //     pt.y = e.clientY;
+                                        //     const cursorPt = pt.matrixTransform(svg.getScreenCTM()?.inverse());
 
-                                            const idStr = window.prompt(`Enter ID for plot at ${Math.round(cursorPt.x)},${Math.round(cursorPt.y)}:`);
-                                            if (idStr) {
-                                                const id = parseInt(idStr, 10);
-                                                // Calculate bbox for visual feedback
-                                                const bbox = {
-                                                    x0: cursorPt.x - 15,
-                                                    y0: cursorPt.y - 10,
-                                                    x1: cursorPt.x + 15,
-                                                    y1: cursorPt.y + 10
-                                                };
+                                        //     const idStr = window.prompt(`Enter ID for plot at ${Math.round(cursorPt.x)},${Math.round(cursorPt.y)}:`);
+                                        //     if (idStr) {
+                                        //         const id = parseInt(idStr, 10);
+                                        //         // Calculate bbox for visual feedback
+                                        //         const bbox = {
+                                        //             x0: cursorPt.x - 15,
+                                        //             y0: cursorPt.y - 10,
+                                        //             x1: cursorPt.x + 15,
+                                        //             y1: cursorPt.y + 10
+                                        //         };
 
-                                                // Update State for Visual Feedback
-                                                const newDiscovered: DiscoveredPlot = {
-                                                    id,
-                                                    text: id.toString(),
-                                                    confidence: 100,
-                                                    bbox,
-                                                    center: { x: cursorPt.x, y: cursorPt.y }
-                                                };
+                                        //         // Update State for Visual Feedback
+                                        //         const newDiscovered: DiscoveredPlot = {
+                                        //             id,
+                                        //             text: id.toString(),
+                                        //             confidence: 100,
+                                        //             bbox,
+                                        //             center: { x: cursorPt.x, y: cursorPt.y }
+                                        //         };
 
-                                                setDiscoveredPlots(prev => {
-                                                    const updated = [...prev, newDiscovered];
+                                        //         setDiscoveredPlots(prev => {
+                                        //             const updated = [...prev, newDiscovered];
 
-                                                    // LOG FULL JSON so user can copy ONCE
-                                                    // We need to map `updated` discovered plots to `IbisPlot` format
-                                                    const ibisFormat = updated.map(d => ({
-                                                        id: d.id,
-                                                        status: "available",
-                                                        points: `${Math.round(d.bbox.x0)},${Math.round(d.bbox.y0)} ${Math.round(d.bbox.x1)},${Math.round(d.bbox.y0)} ${Math.round(d.bbox.x1)},${Math.round(d.bbox.y1)} ${Math.round(d.bbox.x0)},${Math.round(d.bbox.y1)}`,
-                                                        villa: { x: d.center.x, y: d.center.y },
-                                                        label: { x: d.center.x, y: d.center.y },
-                                                        sqft: 1200,
-                                                        facing: "East"
-                                                    })).sort((a, b) => a.id - b.id);
+                                        //             // LOG FULL JSON so user can copy ONCE
+                                        //             // We need to map `updated` discovered plots to `IbisPlot` format
+                                        //             const ibisFormat = updated.map(d => ({
+                                        //                 id: d.id,
+                                        //                 status: "available",
+                                        //                 points: `${Math.round(d.bbox.x0)},${Math.round(d.bbox.y0)} ${Math.round(d.bbox.x1)},${Math.round(d.bbox.y0)} ${Math.round(d.bbox.x1)},${Math.round(d.bbox.y1)} ${Math.round(d.bbox.x0)},${Math.round(d.bbox.y1)}`,
+                                        //                 villa: { x: d.center.x, y: d.center.y },
+                                        //                 label: { x: d.center.x, y: d.center.y },
+                                        //                 sqft: 1200,
+                                        //                 facing: "East"
+                                        //             })).sort((a, b) => a.id - b.id);
 
-                                                    console.log("UPDATED FULL JSON (Copy this):", JSON.stringify(ibisFormat, null, 2));
-                                                    return updated;
-                                                });
-                                            }
-                                        } 
-                                        */
+                                        //             console.log("UPDATED FULL JSON (Copy this):", JSON.stringify(ibisFormat, null, 2));
+                                        //             return updated;
+                                        //         });
+                                        //     }
+                                        // }
                                     }}
                                 >
                                 </svg>
@@ -309,7 +323,7 @@ export default function PerspectiveMap({
                                     })}
 
                                     {/* OCR DEBUG OVERLAY */}
-                                    {discoveredPlots.map((d, i) => (
+                                    {/* {developerMode && discoveredPlots.map((d, i) => (
                                         <g key={`ocr-${d.id}-${i}`}>
                                             <rect
                                                 x={d.bbox.x0}
@@ -335,7 +349,7 @@ export default function PerspectiveMap({
                                                 {d.id}
                                             </text>
                                         </g>
-                                    ))}
+                                    ))} */}
                                 </svg>
 
                                 {/* 3. HTML LABELS (Finplify Style Boxes) */}
@@ -361,8 +375,8 @@ export default function PerspectiveMap({
                                                     ${selected ? 'scale-125 ring-2 ring-orange-500 z-20' : 'scale-100 hover:scale-110'}
                                                 `}
                                             style={{
-                                                left: typeof p.label.left === 'string' ? p.label.left : (p.label.left ? `${p.label.left}%` : `${(p.label.x / 1024) * 100}%`),
-                                                top: typeof p.label.top === 'string' ? p.label.top : (p.label.top ? `${p.label.top}%` : `${(p.label.y / 1024) * 100}%`),
+                                                left: typeof p.label.left === 'string' ? p.label.left : (p.label.left ? `${p.label.left}%` : `${(p.label.x / mapDimensions.width) * 100}%`),
+                                                top: typeof p.label.top === 'string' ? p.label.top : (p.label.top ? `${p.label.top}%` : `${(p.label.y / mapDimensions.height) * 100}%`),
                                                 transform: 'translate(-50%, -50%)', // Center on coordinate
                                                 lineHeight: '1',
                                                 fontWeight: 800

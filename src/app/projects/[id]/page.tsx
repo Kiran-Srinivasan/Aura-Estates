@@ -25,9 +25,14 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
     // Select appropriate data
     const plotData = project.id === "kabini-serenity" ? KABINI_PLOTS : IBIS_PLOTS;
     const mapImage = project.id === "kabini-serenity"
-        ? "/images/projects/kabini-realistic.jpg"
+        ? "/images/projects/aura-kabini-master-plan.png"
         : "/images/projects/kabini-masterplan-mobile.png";
     const showLabels = true;
+
+    // Use project-specific dimensions to ensure labels align correctly
+    const mapDimensions = project.id === "kabini-serenity"
+        ? { width: 1024, height: 1024 } // Kabini Master Plan is 1024x1024
+        : { width: 1024, height: 1024 }; // Wayanad is square
 
     return (
         <main className="min-h-screen bg-surface font-sans">
@@ -76,6 +81,7 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
                     plots={plotData}
                     mapImage={mapImage}
                     showLabels={showLabels}
+                    mapDimensions={mapDimensions}
                 />
             )}
 
