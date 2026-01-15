@@ -17,7 +17,7 @@
     "@types/leaflet": "^1.9.21",
     "@types/three": "^0.182.0",
     "clsx": "^2.1.1",
-    "framer-motion": "^12.23.26",
+    "framer-motion": "^12.26.2",
     "leaflet": "^1.9.4",
     "lucide-react": "^0.562.0",
     "maath": "^0.10.8",
@@ -30,18 +30,22 @@
     "react-leaflet": "^5.0.0",
     "react-zoom-pan-pinch": "^3.7.0",
     "tailwind-merge": "^3.4.0",
+    "tesseract.js": "^7.0.0",
     "three": "^0.182.0",
     "zod": "^4.3.5",
     "zustand": "^5.0.9"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
-    "@types/node": "^20",
+    "@types/node": "20.19.29",
     "@types/nodemailer": "^7.0.4",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.1.1",
+    "lightningcss": "^1.30.2",
+    "lightningcss-darwin-arm64": "^1.30.2",
+    "lightningcss-darwin-x64": "^1.30.2",
     "tailwindcss": "^4",
     "typescript": "^5"
   }

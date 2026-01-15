@@ -7,6 +7,8 @@ import { Footer } from "@/components/layout/Footer";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { PROJECTS } from "@/data/projects";
+import { KABINI_PLOTS } from "@/data/kabini-plots";
+import { IBIS_PLOTS } from "@/data/ibis-plots";
 import MasterPlan from "@/components/projects/MasterPlan";
 
 export default async function ProjectDetailPage({ params }: { params: Promise<{ id: string }> }) {
@@ -16,6 +18,16 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
     if (!project) {
         return notFound();
     }
+
+    // Determine if this project uses the Master Plan view
+    const showMasterPlan = project.id === "kabini-serenity" || project.id === "wayanad-paddy";
+
+    // Select appropriate data
+    const plotData = project.id === "kabini-serenity" ? KABINI_PLOTS : IBIS_PLOTS;
+    const mapImage = project.id === "kabini-serenity"
+        ? "/images/projects/kabini-realistic.jpg"
+        : "/images/projects/kabini-masterplan-mobile.png";
+    const showLabels = true;
 
     return (
         <main className="min-h-screen bg-surface font-sans">
@@ -57,9 +69,14 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
                 </Container>
             </div>
 
-            {/* Master Plan Section - Only for Kabini (or projects with masterplan data) */}
-            {project.id === "kabini-serenity" && (
-                <MasterPlan />
+            {/* Master Plan Section */}
+            {showMasterPlan && (
+                <MasterPlan
+                    project={project}
+                    plots={plotData}
+                    mapImage={mapImage}
+                    showLabels={showLabels}
+                />
             )}
 
             {/* Content Section */}

@@ -15,7 +15,18 @@ const PerspectiveMap = dynamic(() => import('./PerspectiveMap'), {
     )
 });
 
-export default function MasterPlan() {
+interface MasterPlanProps {
+    project: {
+        id: string;
+        title: string;
+        phase?: string;
+    };
+    plots: any[];
+    mapImage: string;
+    showLabels?: boolean;
+}
+
+export default function MasterPlan({ project, plots, mapImage, showLabels = true }: MasterPlanProps) {
     const [selectedPlot, setSelectedPlot] = useState<any>(null);
     const [showMap, setShowMap] = useState(false);
 
@@ -24,8 +35,8 @@ export default function MasterPlan() {
             {/* Sidebar Container */}
             <div className="w-full md:w-96 bg-slate-900 border-r border-white/5 p-6 flex flex-col z-10 shrink-0">
                 <div className="mb-8">
-                    <h2 className="text-3xl font-serif text-white mb-2">Kabini Serenity</h2>
-                    <p className="text-slate-400 text-sm tracking-wide uppercase">Phase 1 • Estate Plots</p>
+                    <h2 className="text-3xl font-serif text-white mb-2">{project.title}</h2>
+                    <p className="text-slate-400 text-sm tracking-wide uppercase">{project.phase || "Phase 1 • Estate Plots"}</p>
                 </div>
 
                 <div className="space-y-6">
@@ -57,7 +68,7 @@ export default function MasterPlan() {
                 <div className="mt-auto pt-6 border-t border-white/5">
                     <div className="flex justify-between items-center text-slate-400 text-sm">
                         <span>Total Plots</span>
-                        <span className="text-white font-medium">42</span>
+                        <span className="text-white font-medium">{plots.length}</span>
                     </div>
                 </div>
             </div>
@@ -67,7 +78,7 @@ export default function MasterPlan() {
                 {/* Static Background Preview */}
                 <div className="absolute inset-0">
                     <img
-                        src="/images/projects/kabini-realistic.jpg"
+                        src={mapImage}
                         alt="Master Plan Preview"
                         className="w-full h-full object-cover opacity-50 grayscale transition-all duration-700 group-hover:scale-105 group-hover:grayscale-0 group-hover:opacity-100"
                     />
@@ -102,6 +113,9 @@ export default function MasterPlan() {
                             <PerspectiveMap
                                 selectedId={selectedPlot?.id || null}
                                 onSelect={setSelectedPlot}
+                                plots={plots}
+                                mapImage={mapImage}
+                                showLabels={showLabels}
                             />
 
                             {/* Close Button */}
